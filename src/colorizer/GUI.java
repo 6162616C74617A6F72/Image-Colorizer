@@ -258,7 +258,7 @@ public class GUI extends JFrame
 			updateInfoText("add", str);
 			str = "";
 
-			if(arg.equals("gray"))
+			if("gray".equals(arg))
 			{
 				try
 				{
@@ -292,7 +292,7 @@ public class GUI extends JFrame
 					str = "";
 				}
 			}
-			else if(arg.equals("color"))
+			else if("color".equals(arg))
 			{
 				try
 				{
@@ -329,21 +329,21 @@ public class GUI extends JFrame
 	
 	public void showImage(String arg, BufferedImage img)
 	{
-		if(arg.equals("gray"))
+		if("gray".equals(arg))
 		{
 			grayImageLabel.setText(null);
 			grayImageLabel.setIcon(new ImageIcon(img));
 
 			grayImageLoaded = true;
 		}
-		else if(arg.equals("color"))
+		else if("color".equals(arg))
 		{
 			colorImageLabel.setText(null);
 			colorImageLabel.setIcon(new ImageIcon(img));
 
 			colorImageLoaded = true;
 		}
-		else if(arg.equals("render"))
+		else if("render".equals(arg))
 		{
 			renderedImageLabel.setText(null);
 			renderedImageLabel.setIcon(new ImageIcon(img));
@@ -355,7 +355,7 @@ public class GUI extends JFrame
 			updateInfoText("add", str);
 			str = "";
 		}
-		else if(arg.equals("reset"))
+		else if("reset".equals(arg))
 		{
 			grayImageLabel.setText("Gray Image");
 			grayImageLabel.setIcon(null);
@@ -368,7 +368,7 @@ public class GUI extends JFrame
 			renderingImageLoaded = false;
 		}
 
-		if(grayImageLoaded && colorImageLoaded && !arg.equals("reset"))
+		if(grayImageLoaded && colorImageLoaded && !"reset".equals(arg))
 		{
 			startButton.setEnabled(true);
 			grayImageLoaded = false;
@@ -394,7 +394,7 @@ public class GUI extends JFrame
 		int w = 0;
 		int h = 0;
 
-		if(arg.equals("gray"))
+		if("gray".equals(arg))
 		{
 			float maxW = grayImageLabel.getWidth(), maxH = grayImageLabel.getHeight();
 			float ratio = 0.0f;
@@ -410,7 +410,7 @@ public class GUI extends JFrame
 			w = (int)(ratio * imgW);
 			h = (int)(ratio * imgH);
 		}
-		else if(arg.equals("color"))
+		else if("color".equals(arg))
 		{
 			float maxW = colorImageLabel.getWidth(), maxH = colorImageLabel.getHeight();
 			float ratio = 0.0f;
@@ -426,7 +426,7 @@ public class GUI extends JFrame
 			w = (int)(ratio * imgW);
 			h = (int)(ratio * imgH);
 		}
-		else if(arg.equals("render"))
+		else if("render".equals(arg))
 		{
 			float maxW = renderedImageLabel.getWidth(), maxH = renderedImageLabel.getHeight();
 			float ratio = 0.0f;
@@ -546,11 +546,11 @@ public class GUI extends JFrame
 	{
 		//On and off some buttons after rendering is done.
 
-		if(arg.equals("start"))
+		if("start".equals(arg))
 		{
 			stopButton.setEnabled(true);
 		}
-		else if(arg.equals("done"))
+		else if("done".equals(arg))
 		{
 			stop();
 		}
@@ -568,11 +568,11 @@ public class GUI extends JFrame
 
 	public void updateInfoText(String arg, String str)
 	{
-		if(arg.equals("reset"))
+		if("reset".equals(arg))
 		{
 			infoText.setText(str);
 		}
-		else if(arg.equals("add"))
+		else if("add".equals(arg))
 		{
 			str = str + "\n" + infoText.getText();
 			infoText.setText(str);
@@ -582,13 +582,13 @@ public class GUI extends JFrame
 
 	public void updateProgressBar(String arg, int min, int max, int val)
 	{
-		if(arg.equals("init") && min >= 0 && max > 0)
+		if("init".equals(arg) && min >= 0 && max > 0)
 		{
 			progressBar.setMinimum(min);
 			progressBar.setMaximum(max);
             progressBar.setValue(val);
 		}
-		else if(arg.equals("update") && val >= 0)
+		else if("update".equals(arg) && val >= 0)
 		{
 			progressBar.setValue(val);
 		}
